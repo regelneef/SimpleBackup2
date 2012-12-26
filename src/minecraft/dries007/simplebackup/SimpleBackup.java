@@ -32,10 +32,10 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = "SimpleBackup", name = "SimpleBackup", version = "2.0")
+@Mod(modid = "SimpleBackup", name = "SimpleBackup")
 public class SimpleBackup 
 {
-	public static final String VERSION = "2.0";
+	public static String VERSION = "2.0";
 	
 	private static MinecraftServer server;
 	private static boolean isClient;
@@ -67,6 +67,7 @@ public class SimpleBackup
 			isClient = true;
 			return;
 		}
+		VERSION = e.getModMetadata().version.split(":")[1];
 		configFile = e.getSuggestedConfigurationFile();
 	}
 	
