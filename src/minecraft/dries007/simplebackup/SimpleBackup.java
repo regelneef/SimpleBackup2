@@ -67,28 +67,23 @@ public class SimpleBackup
 			isClient = true;
 			return;
 		}
-		VERSION = e.getModMetadata().version.split(":")[1];
+		VERSION = e.getModMetadata().version;
 		configFile = e.getSuggestedConfigurationFile();
 	}
 	
-	private void versionCheck() 
+	public static Boolean versionCheck() 
 	{
 		try
 		{
 			URL versionFile = new URL("http://driesgames.game-server.cc/SimpleBackup/version.txt");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(versionFile.openStream()));
 			String version = reader.readLine();
-			if(!version.equals(VERSION))
-			{
-				FMLLog.warning("SimpleBackup is out of date! Get the new version at http://www.dries007.net/SimpleBackup/");
-				server.logWarning("SimpleBackup is out of date! Get the new version at http://www.dries007.net/SimpleBackup/");
-			}
+			if(version.equals(VERSION.split(":")[1])) return true;
+			else return false;
 		}
 		catch (Exception e)
 		{
-			server.logWarning("Failed to check for simplebackup updates.");
-			FMLLog.warning("Failed to check for simplebackup updates.");
-			e.printStackTrace();
+			return null;
 		}
 	}
 
@@ -106,7 +101,16 @@ public class SimpleBackup
 	{
 		if(isClient) return;
 		initiateTimer();
-		versionCheck();
+		
+		String msg = "Failed to check for simplebackup updates.";
+		try
+		{
+			if(versionCheck()) msg = "Your server is protected by SimpleBackup version " + VERSION + ". Up to date!";
+			else msg = "SimpleBackup is out of date! Get the new version at http://www.dries007.net/SimpleBackup/";
+		}
+		catch(Exception ex){}
+		FMLLog.warning(msg);
+		server.logWarning(msg);
 	}
 	
 	private void initiateTimer() 

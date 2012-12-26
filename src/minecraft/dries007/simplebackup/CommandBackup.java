@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.FMLLog;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -74,6 +75,15 @@ public class CommandBackup extends CommandBase
 	public void sendInfo(ICommandSender sender)
 	{
 		sender.sendChatToPlayer("\u00a7a" + "=== Backup Status ===");
+		
+		String msg = "Failed to check for simplebackup updates.";
+		try
+		{
+			if(SimpleBackup.versionCheck()) msg = "SimpleBackup version " + SimpleBackup.VERSION + ". Up to date!";
+			else msg = "SimpleBackup is out of date! Get the new version at http://www.dries007.net/SimpleBackup/";
+		}
+		catch(Exception ex){}
+		sender.sendChatToPlayer(msg);
 		
 		if (SimpleBackup.useInterval)
 		{

@@ -34,6 +34,16 @@ public class BackupTask
 		sendWaring();
 		fullsave();
 		
+		String msg = "Failed to check for simplebackup updates.";
+		try
+		{
+			if(SimpleBackup.versionCheck()) msg = "Your server is protected by SimpleBackup version " + SimpleBackup.VERSION + ". Up to date!";
+			else msg = "SimpleBackup is out of date! Get the new version at http://www.dries007.net/SimpleBackup/";
+		}
+		catch(Exception ex){}
+		FMLLog.warning(msg);
+		server.logWarning(msg);
+		
 		for(File folder : SimpleBackup.folders)
 		{
 			doFolder(folder);
@@ -46,6 +56,16 @@ public class BackupTask
 	{
 		sendWaring();
 		fullsave();
+		
+		String msg = "Failed to check for simplebackup updates.";
+		try
+		{
+			if(SimpleBackup.versionCheck()) msg = "Your server is protected by SimpleBackup version " + SimpleBackup.VERSION + ". Up to date!";
+			else msg = "SimpleBackup is out of date! Get the new version at http://www.dries007.net/SimpleBackup/";
+		}
+		catch(Exception ex){}
+		FMLLog.warning(msg);
+		server.logWarning(msg);
 				
 		for(File folder : folders)
 		{
