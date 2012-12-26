@@ -1,0 +1,22 @@
+[
+{
+  "modid": "SimpleBackup",
+  "name": "SimpleBackup",
+  "description": "Your server's backup solution!
+  This mod is 100% server side!",
+  "version": "2.0 Build:@build@",
+  "mcversion": "1.4.6",
+  "url": "www.dries007.net/SimpleBackup/",
+  "updateUrl": "www.dries007.net/SimpleBackup",
+  "authors": [
+    "Dries007"
+  ],
+  "credits": "By Dries007",
+  "logoFile": "SimpleBackup.png",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]

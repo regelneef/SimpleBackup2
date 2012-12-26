@@ -16,7 +16,7 @@
 
 /src/minecraft/*
 !/src/minecraft/dries007/
-!/src/minecraft/mcpmod.info
+!/src/minecraft/mcmod.info
 !/src/minecraft/SimpleBackup.png
 
 *.bat
