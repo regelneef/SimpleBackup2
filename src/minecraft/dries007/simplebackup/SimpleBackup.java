@@ -133,7 +133,7 @@ public class SimpleBackup
 		
 		interval = config.get(cat + ".Interval", "interval", 15, "Value in minutes").getInt(15);
 		useInterval = config.get(cat + ".Interval", "useInterval", true, "if true, make a backup every X minutes, If false only manually").getBoolean(true);
-		backupIfEmpty = config.get(cat + ".Interval", "backupIfEmply", false, "Make a backup if there are 0 players online.").getBoolean(false);
+		backupIfEmpty = config.get(cat + ".Interval", "backupIfEmpty", false, "Make a backup if there are 0 players online.").getBoolean(false);
 		
 		maxBackups = config.get(cat + ".MaxBackups", "maxBackups", 100, "If the amount of files in the backup folder gets higher than this number, delete the oldest one.").getInt(100);
 		activateMax = config.get(cat + ".MaxBackups", "activateMax", true, "If you don't have to worry about diskspace, set this to false :p").getBoolean(true);
