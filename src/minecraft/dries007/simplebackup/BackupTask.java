@@ -210,6 +210,7 @@ public class BackupTask
     	catch(IOException ex)
     	{
     		FMLLog.severe(ex.getMessage());
+    		ex.printStackTrace();
     	}
     }
 
