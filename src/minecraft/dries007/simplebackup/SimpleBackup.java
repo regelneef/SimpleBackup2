@@ -142,11 +142,10 @@ public class SimpleBackup
 		basePath = config.get(cat + ".Filename", "backupFolder", "backup", "Gets made if it doesn't exist").value;
 		filenameTemplate = config.get(cat + ".Filename", "filename", "%day-%month-%year_%hourh%min", "The %-codes get replaced by there appropriate value.").value;
 		
-		String[] folderList = config.get(cat + ".Folders", "folders", new String[]{"config", worlddir}, "Folders to backup (config & worldname). Waring: Case sensitive!\nIf you want sub folders, use a \".\" as seperator").valueList;
+		String[] folderList = config.get(cat + ".Folders", "folders", new String[]{"config", worlddir}, "Folders to backup (config & worldname). Waring: Case sensitive!").valueList;
 
 		for (String folderName : folderList)
 		{
-			folderName = folderName.replaceAll(".", File.separator);
 			File folder = new File(folderName);
 			if(folder.exists() && folder.isDirectory())
 			{
